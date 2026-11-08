@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guest Manual · The Glendevon Loft</title>
+<style>
+:root{--bg:#F5F1E8;--card:#FFFFFF;--ink:#1D2623;--muted:#5F6A65;--line:#E6E0D2;--wall:#4A5550;--accent:#0F6E56;--tint:#E2F4EC;--sw-bg:#FDE9B8;--sw-ink:#6B3A05;--sw-line:#E39B1B;--r-bed:#E3EEF9;--r-bath:#D9F1EB;--r-sit:#FBF1DC;--r-kit:#F2EFD3;--r-bal:#DAEDD5;--gap:#CFC9BA;--shadow:0 4px 14px rgba(40,50,45,.08);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121614;--card:#1C2220;--ink:#EEEBE3;--muted:#A3ABA6;--line:#2E3631;--wall:#9AA59F;--accent:#4FC9A0;--tint:#10392F;--sw-bg:#4A2D05;--sw-ink:#FBD98A;--sw-line:#E39B1B;--r-bed:#1F2F3E;--r-bath:#163A32;--r-sit:#38301F;--r-kit:#35341E;--r-bal:#213927;--gap:#3A413C;--shadow:none;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121614;--card:#1C2220;--ink:#EEEBE3;--muted:#A3ABA6;--line:#2E3631;--wall:#9AA59F;--accent:#4FC9A0;--tint:#10392F;--sw-bg:#4A2D05;--sw-ink:#FBD98A;--sw-line:#E39B1B;--r-bed:#1F2F3E;--r-bath:#163A32;--r-sit:#38301F;--r-kit:#35341E;--r-bal:#213927;--gap:#3A413C;--shadow:none;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;font-size:16px}
+.hero{background:linear-gradient(145deg,#0B5A47 0%,#139672 55%,#4CC2A0 100%);color:#fff;padding:calc(34px + env(safe-area-inset-top,0px)) 20px 70px;text-align:center}
+.hero small{letter-spacing:.14em;text-transform:uppercase;font-size:12px;opacity:.85}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:34px;line-height:1.15;margin:8px 0 10px;font-weight:700}
+.hero p{margin:0 auto;max-width:460px;opacity:.95}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:99px;font-size:14px}
+main{max-width:680px;margin:-44px auto 0;padding:0 16px 48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:var(--shadow)}
+h2{display:flex;align-items:center;gap:12px;font-size:19px;margin:0 0 12px;font-weight:650}
+.ico{flex:none;width:38px;height:38px;border-radius:12px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-size:19px}
+p{margin:0 0 10px}p:last-child{margin-bottom:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;text-decoration:none;padding:11px 18px;border-radius:12px;font-weight:600;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+:root[data-theme="dark"] .btn.main{color:#06231B}
+.btn.alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.wifi{background:var(--tint);border:1.5px dashed var(--accent);border-radius:14px;padding:6px 16px;margin-top:6px}
+.wr{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0}
+.wr+.wr{border-top:1px solid var(--line)}
+.wl{font-size:13px;color:var(--muted)}
+.wv{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-size:16px;word-break:break-all;text-align:right}
+.planbox{background:linear-gradient(180deg,var(--tint),transparent);border-radius:14px;padding:10px}
+.plan{width:100%;height:auto;display:block}
+.wall{fill:none;stroke:var(--wall);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.door{stroke:var(--accent);stroke-width:4;stroke-linecap:round}
+.open{stroke:var(--accent);stroke-width:2;stroke-dasharray:3 3}
+.rt{font-size:13px;font-weight:650;fill:var(--ink)}
+.rs{font-size:11px;fill:var(--muted)}
+.pin{fill:var(--sw-bg);stroke:var(--sw-line);stroke-width:1.5}
+.pl{font-size:12px;font-weight:700;fill:var(--sw-ink)}
+.legend{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.legend li{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--sw-bg);border:1.5px solid var(--sw-line);color:var(--sw-ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.k{flex:none;width:28px;border-top:4px solid var(--accent);border-radius:2px}.k.d{border-top:2px dashed var(--accent)}
+.tip{display:flex;gap:12px;padding:12px 0}.tip+.tip{border-top:1px solid var(--line)}.tip b{display:block}
+.checklist{list-style:none;padding:0;margin:10px 0 0}
+.checklist li{position:relative;padding-left:34px;margin-bottom:12px}
+.checklist li::before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.foot{text-align:center;color:var(--muted);margin-top:26px}
+</style>
+</head>
+<body>
+<header class="hero">
+<small>Guest manual</small>
+<h1>The Glendevon Loft</h1>
+<p>Welcome! We’re delighted to host you. Here is everything you need for a comfortable stay.</p>
+<div class="chips"><span class="chip">🕑 Check-in after 2:00 PM</span><span class="chip">🏢 Flat 9 · 2nd floor</span><span class="chip">🚗 Free parking</span></div>
+</header>
+<main>
+
+<section class="card">
+<h2><span class="ico">📍</span>Location &amp; check-in</h2>
+<p><strong>Address:</strong> SIDA flats block E, Kidondoni, ADA Estate, along Ally Hassan Mwinyi Road. Search “Kwa Godi Shop” on Google Maps, or tap the button below.</p>
+<p><strong>Finding the flat:</strong> second floor, right side as you emerge from the stairs, flat no. 9.</p>
+<p><strong>Self check-in:</strong> anytime after 2:00 PM. Use the key drop box on the outside of the door with the passcode we shared with you.</p>
+<p><strong>Parking:</strong> free within the residential compound.</p>
+<div class="row"><a class="btn main" href="https://maps.app.goo.gl/NWa5vBUXQLNm1S8h6?g_st=ac">Open in Google Maps</a></div>
+</section>
+
+<section class="card">
+<h2><span class="ico">📶</span>Wi-Fi</h2>
+<p>High-speed internet is available throughout the apartment.</p>
+<div class="wifi">
+<div class="wr"><span class="wl">Network</span><span class="wv">Athena2</span></div>
+<div class="wr"><span class="wl">Password</span><span class="wv" id="pw">06062026</span></div>
+</div>
+<div class="row"><button class="btn alt" id="cp" type="button">Copy password</button></div>
+</section>
+
+<section class="card">
+<h2><span class="ico">🗺️</span>Floor plan &amp; key switches</h2>
+<p>Find the main switches for water, water heater and air conditioning on the plan.</p>
+<div class="planbox">
+<svg class="plan" viewBox="0 0 380 470" role="img" aria-label="Floor plan with switches A to D">
+<path fill="var(--r-bed)" d="M20 40 H227 V130 H257 V167 H20 Z"/>
+<rect fill="var(--gap)" x="227" y="40" width="30" height="90"/>
+<rect fill="var(--r-bath)" x="257" y="40" width="103" height="90"/>
+<rect fill="var(--card)" x="257" y="130" width="103" height="37"/>
+<rect fill="var(--r-bal)" x="20" y="167" width="61" height="203"/>
+<path fill="var(--r-sit)" d="M81 167 H360 V456 H245 V370 H81 Z"/>
+<rect fill="var(--r-kit)" x="20" y="370" width="225" height="86"/>
+<path class="wall" d="M20 456 V40 H360 V456 H20"/>
+<path class="wall" d="M20 167 H295 M350 167 H360"/>
+<path class="wall" d="M227 40 V130 H257"/>
+<path class="wall" d="M257 40 V167 M257 130 H360"/>
+<path class="wall" d="M81 167 V370 M20 370 H245 M245 370 V385 M245 440 V456"/>
+<line class="open" x1="295" y1="167" x2="350" y2="167"/>
+<line class="open" x1="245" y1="385" x2="245" y2="440"/>
+<text class="rs" x="50" y="268" text-anchor="middle" dominant-baseline="central">Balcony</text>
+<text class="rt" x="123" y="85" text-anchor="middle" dominant-baseline="central">Bedroom</text>
+<text class="rt" x="308" y="85" text-anchor="middle" dominant-baseline="central">Bathroom</text>
+<text class="rt" x="215" y="270" text-anchor="middle" dominant-baseline="central">Sitting room</text>
+<text class="rt" x="150" y="425" text-anchor="middle" dominant-baseline="central">Kitchen</text>
+<line class="door" x1="30" y1="370" x2="58" y2="370"/>
+<text class="rs" x="26" y="392" dominant-baseline="central">Balcony door</text>
+<line class="door" x1="300" y1="456" x2="336" y2="456"/>
+<text class="rs" x="318" y="432" text-anchor="middle" dominant-baseline="central">Entry door</text>
+<line class="door" x1="257" y1="136" x2="257" y2="162"/>
+<line class="door" x1="305" y1="130" x2="340" y2="130"/>
+<circle class="pin" cx="30" cy="157" r="11"/><text class="pl" x="30" y="157" text-anchor="middle" dominant-baseline="central">C</text>
+<circle class="pin" cx="93" cy="178" r="11"/><text class="pl" x="93" y="178" text-anchor="middle" dominant-baseline="central">B</text>
+<circle class="pin" cx="291" cy="147" r="11"/><text class="pl" x="291" y="147" text-anchor="middle" dominant-baseline="central">D</text>
+<circle class="pin" cx="266" cy="438" r="12"/><text class="pl" x="266" y="438" text-anchor="middle" dominant-baseline="central">A</text>
+</svg>
+</div>
+<ul class="legend">
+<li><span class="b">A</span>Water pump switch</li>
+<li><span class="b">B</span>Sitting room AC switch</li>
+<li><span class="b">C</span>Bedroom AC switch</li>
+<li><span class="b">D</span>Water heater switch</li>
+<li><span class="k"></span>Doors</li>
+<li><span class="k d"></span>Open doorway, no door</li>
+</ul>
+</section>
+
+<section class="card">
+<h2><span class="ico">⚡</span>Appliances &amp; tips</h2>
+<div class="tip"><span class="ico">❄️</span><div><b>Air conditioning</b>Turn switch B or C on before using the remotes, and switch the AC off when you leave.</div></div>
+<div class="tip"><span class="ico">🚿</span><div><b>Hot water</b>Turn on the water heater switch (D) about 15 minutes before showering.</div></div>
+<div class="tip"><span class="ico">🗑️</span><div><b>Trash</b>Bins are under the kitchen sink. Larger disposal is in the main residential courtyard.</div></div>
+</section>
+
+<section class="card">
+<h2><span class="ico">🔑</span>Departure checklist</h2>
+<p>Check-out is at <strong>11:00 AM</strong>. Please complete these quick steps:</p>
+<ul class="checklist">
+<li>Turn off all AC units, lights and switches (A, B, C, D).</li>
+<li>Make sure windows and balcony doors are locked.</li>
+<li>Place used dishes in the kitchen sink.</li>
+<li>Return the key to the drop box outside the door and scramble the code.</li>
+<li>Send us a quick message to let us know you have checked out.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2><span class="ico">📞</span>Need help?</h2>
+<p>If you need anything before or during your stay, feel free to reach us.</p>
+<div class="row"><a class="btn main" href="tel:+255743847045">Call +255 743 847 045</a></div>
+</section>
+
+<p class="foot">We hope you have the most amazing stay with us.<br>Cheers and welcome in Dar ☺️</p>
+</main>
+<script>
+document.getElementById("cp").addEventListener("click",function(){var b=this,t=document.getElementById("pw").textContent;try{navigator.clipboard.writeText(t).then(function(){b.textContent="Copied ✓"},function(){b.textContent="Press and hold to copy"})}catch(e){b.textContent="Press and hold to copy"}});
+</script>
+</body>
+</html>
